@@ -35,15 +35,19 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 " NERDTree
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'nerdtree') >= 0
-   Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFocus', 'NERDTreeToggle', 'NERDTreeCWD', 'NERDTreeFind'] }
-   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-   let g:NERDTreeMinimalUI = 1
-   let g:NERDTreeDirArrows = 1
-   let g:NERDTreeHijackNetrw = 0
-   noremap <space>nn :NERDTree<cr>
-   noremap <space>no :NERDTreeFocus<cr>
-   noremap <space>nm :NERDTreeMirror<cr>
-   noremap <space>nt :NERDTreeToggle<cr>
+	Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFocus', 'NERDTreeToggle', 'NERDTreeCWD', 'NERDTreeFind'] }
+	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	let g:NERDTreeMinimalUI = 1
+	let g:NERDTreeDirArrows = 1
+	let g:NERDTreeHijackNetrw = 0
+	noremap <space>no :NERDTreeFocus<cr>
+	noremap <space>nm :NERDTreeMirror<cr>
+	noremap <space>nn :NERDTreeToggle<cr>
+
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 endif
 
 Plug 'SirVer/ultisnips'
@@ -53,3 +57,11 @@ Plug 'honza/vim-snippets'
 " 结束插件安装
 "----------------------------------------------------------------------
 call plug#end()
+
+
+
+"----------------------------------------------------------------------
+" trailing-whitespace 配置
+"----------------------------------------------------------------------
+map <leader><space> :FixWhitespace<cr>
+

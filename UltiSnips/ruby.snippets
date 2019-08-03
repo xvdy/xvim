@@ -1,0 +1,9 @@
+snippet atc "test case of ActiveSupport::TestCase" !b
+require 'test_helper'
+
+class ${1:klass}Test < ActiveSupport::TestCase
+   test '${2:case_name}' do
+    ${0}
+   end
+end
+endsnippet
