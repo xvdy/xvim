@@ -46,6 +46,9 @@ if index(g:bundle_group, 'nerdtree') >= 0
    noremap <space>nt :NERDTreeToggle<cr>
 endif
 
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 "----------------------------------------------------------------------
 " 结束插件安装
 "----------------------------------------------------------------------
