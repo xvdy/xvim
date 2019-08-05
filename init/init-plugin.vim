@@ -40,12 +40,19 @@ if index(g:bundle_group, 'nerdtree') >= 0
 	let g:NERDTreeMinimalUI = 1
 	let g:NERDTreeDirArrows = 1
 	let g:NERDTreeHijackNetrw = 0
-	noremap <space>no :NERDTreeFocus<cr>
-	noremap <space>nm :NERDTreeMirror<cr>
-	noremap <space>nn :NERDTreeToggle<cr>
+	let g:NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '\.vscode', '__pycache__']
+
+	map <F3> :NERDTreeMirror<CR>
+	map <F3> :NERDTreeToggle<CR>
+
+	"noremap <space>no :NERDTreeFocus<cr>
+	"noremap <space>nm :NERDTreeMirror<cr>
+	"noremap <space>nn :NERDTreeToggle<cr>
 
 	autocmd StdinReadPre * let s:std_in=1
+	" 将nerdtree作为默认的文件浏览器
 	autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+	" 关闭最后一个窗口时自动关闭nerdtree
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 endif
