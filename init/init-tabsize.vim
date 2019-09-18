@@ -19,8 +19,9 @@ set sw=4
 " 设置 TAB 宽度
 set ts=4
 
-" 禁止展开 tab (noexpandtab)
-set noet
+" 禁止展开 tab (noexpandtab)，将tab替换为空格
+" set noet
+set expandtab
 
 " 如果后面设置了 expandtab 那么展开 tab 为多少字符
 set softtabstop=4
