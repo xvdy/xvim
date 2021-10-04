@@ -12,7 +12,7 @@
 " 默认情况下的分组，可以再前面覆盖之
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
-   let g:bundle_group = ['nerdtree']
+   let g:bundle_group = ['nerdtree', 'ctrlp', 'snippets']
 endif
 
 "----------------------------------------------------------------------
@@ -31,6 +31,35 @@ endfunc
 "----------------------------------------------------------------------
 call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
+if index(g:bundle_group, 'snippets') >= 0
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+endif
+
+"----------------------------------------------------------------------
+" CtrlP
+"----------------------------------------------------------------------
+if index(g:bundle_group, 'ctrlp') >= 0
+    Plug 'ctrlpvim/ctrlp.vim'
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+    set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+    let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'link': 'some_bad_symbolic_links',
+      \ }
+    let g:ctrlp_map = '<leader-p>'
+
+    nnoremap <leader>f :CtrlP<CR>
+    nnoremap <leader>b :CtrlPBuffer<CR>
+    nnoremap <leader>m :CtrlPMRUFiles<CR>
+    nnoremap <leader>t :CtrlPTag<CR>
+    let g:ctrlp_map = ''
+endif
+
+
 "----------------------------------------------------------------------
 " NERDTree
 "----------------------------------------------------------------------
@@ -44,6 +73,8 @@ if index(g:bundle_group, 'nerdtree') >= 0
 
 	map <F3> :NERDTreeMirror<CR>
 	map <F3> :NERDTreeToggle<CR>
+	map <leader>n :NERDTreeMirror<CR>
+	map <leader>n :NERDTreeToggle<CR>
 
 	"noremap <space>no :NERDTreeFocus<cr>
 	"noremap <space>nm :NERDTreeMirror<cr>
@@ -56,9 +87,6 @@ if index(g:bundle_group, 'nerdtree') >= 0
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 endif
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 "----------------------------------------------------------------------
 " 结束插件安装
