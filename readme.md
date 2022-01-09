@@ -3,6 +3,7 @@
 quick start
 ```
 curl https://raw.githubusercontent.com/xvdy/xvim/master/install.sh | sh
+https://gitee.com/xdy/xvim/raw/master/install.sh |sh
 ```
 
 ```
