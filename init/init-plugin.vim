@@ -12,7 +12,8 @@
 " 默认情况下的分组，可以再前面覆盖之
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
-   let g:bundle_group = ['nerdtree', 'ctrlp', 'snippets']
+   "let g:bundle_group = ['nerdtree', 'ctrlp', 'snippets']
+   let g:bundle_group = ['nerdtree', 'ctrlp']
 endif
 
 "----------------------------------------------------------------------
