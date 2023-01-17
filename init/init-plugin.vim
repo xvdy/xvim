@@ -6,14 +6,13 @@
 " Last Modified: 2018/06/10 23:11
 "
 "======================================================================
-" vim: set ts=4 sw=4 tw=78 noet :
 
 "----------------------------------------------------------------------
 " 默认情况下的分组，可以再前面覆盖之
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
-   "let g:bundle_group = ['nerdtree', 'ctrlp', 'snippets']
-   let g:bundle_group = ['nerdtree', 'ctrlp']
+   " let g:bundle_group = ['nerdtree', 'ctrlp']
+   let g:bundle_group = ['nerdtree', 'ctrlp', 'snippets']
 endif
 
 "----------------------------------------------------------------------
@@ -33,8 +32,11 @@ endfunc
 call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
 if index(g:bundle_group, 'snippets') >= 0
-    Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'tomtom/tlib_vim'
+    Plug 'garbas/vim-snipmate'
+    let g:snipMate = { 'snippet_version' : 1 }
 endif
 
 "----------------------------------------------------------------------
