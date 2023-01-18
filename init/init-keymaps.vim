@@ -232,8 +232,8 @@ let g:asyncrun_open = 8
 " 任务结束时候响铃提醒
 let g:asyncrun_bell = 1
 
-" 设置 F10 打开/关闭 Quickfix 窗口
-nnoremap <F10> :call asyncrun#quickfix_toggle(8)<cr>
+" 设置 F4 打开/关闭 Quickfix 窗口
+nnoremap <F4> :call asyncrun#quickfix_toggle(8)<cr>
 
 " F9 编译 C/C++ 文件
 nnoremap <silent> <F9> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
