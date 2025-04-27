@@ -101,3 +101,5 @@ call plug#end()
 "----------------------------------------------------------------------
 map <leader><space> :FixWhitespace<cr>
 
+map <leader>n :NERDTreeToggle<cr>
+
