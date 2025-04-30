@@ -12,7 +12,7 @@
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
    " let g:bundle_group = ['nerdtree', 'ctrlp']
-   let g:bundle_group = ['nerdtree', 'ctrlp', 'snippets']
+   let g:bundle_group = ['nerdtree', 'fzf', 'snippets']
 endif
 
 "----------------------------------------------------------------------
@@ -54,10 +54,10 @@ if index(g:bundle_group, 'ctrlp') >= 0
       \ }
     let g:ctrlp_map = '<leader-p>'
 
-    nnoremap <leader>f :CtrlP<CR>
-    nnoremap <leader>b :CtrlPBuffer<CR>
-    nnoremap <leader>m :CtrlPMRUFiles<CR>
-    nnoremap <leader>t :CtrlPTag<CR>
+    nnoremap <leader>sf :CtrlP<CR>
+    nnoremap <leader>sb :CtrlPBuffer<CR>
+    nnoremap <leader>sm :CtrlPMRUFiles<CR>
+    nnoremap <leader>st :CtrlPTag<CR>
     let g:ctrlp_map = ''
 endif
 
@@ -79,7 +79,7 @@ if index(g:bundle_group, 'nerdtree') >= 0
 	map <leader>n :NERDTreeToggle<CR>
 
 	"noremap <space>no :NERDTreeFocus<cr>
-	"noremap <space>nm :NERDTreeMirror<cr>
+	noremap <space>nm :NERDTreeMirror<cr>
 	"noremap <space>nn :NERDTreeToggle<cr>
 
 	autocmd StdinReadPre * let s:std_in=1
@@ -87,6 +87,15 @@ if index(g:bundle_group, 'nerdtree') >= 0
 	autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 	" 关闭最后一个窗口时自动关闭nerdtree
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+endif
+
+if index(g:bundle_group, 'fzf') >= 0
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+	map <leader>sf :Files <CR>
+	map <leader>sg :Rg <CR>
+	map <leader>sh :History <CR>
 
 endif
 
