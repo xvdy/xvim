@@ -33,10 +33,7 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
 if index(g:bundle_group, 'snippets') >= 0
     Plug 'honza/vim-snippets'
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
-    Plug 'garbas/vim-snipmate'
-    let g:snipMate = { 'snippet_version' : 1 }
+    Plug 'SirVer/ultisnips'
 endif
 
 "----------------------------------------------------------------------
@@ -97,6 +94,7 @@ if index(g:bundle_group, 'fzf') >= 0
 	map <leader>sg :Rg <CR>
 	map <leader>sr :History <CR>
 	map <leader>sh :History: <CR>
+	inoremap <c-;> <esc>:Snippets <CR>
 endif
 
 if index(g:bundle_group, 'lsp') >= 0
