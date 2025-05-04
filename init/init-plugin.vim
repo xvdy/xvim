@@ -135,11 +135,11 @@ if index(g:bundle_group, 'lsp') >= 0
 
     Plug 'prabirshrestha/asyncomplete.vim'
     " https://github.com/prabirshrestha/asyncomplete.vim?tab=readme-ov-file
-    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
-    imap <c-1> <Plug>(asyncomplete_force_refresh)
+    imap <S-Tab> <Plug>(asyncomplete_force_refresh)
 
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
@@ -157,5 +157,4 @@ call plug#end()
 "----------------------------------------------------------------------
 map <leader><space> :FixWhitespace<cr>
 
-map <leader>n :NERDTreeToggle<cr>
-
+tnoremap <c-f7> <C-\><C-n><C-w><C-w>
