@@ -309,3 +309,7 @@ endif
 " sudo save
 "----------------------------------------------------------------------
 cmap W w !sudo tee > /dev/null %
+
+
+noremap <silent><F7> :terminal <cr>
+noremap <silent><leader>t :terminal <cr>

@@ -97,8 +97,8 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 	\ gui=NONE guifg=DarkGrey guibg=NONE
 
 " 修正补全目录的色彩：默认太难看
-hi! Pmenu guibg=gray guifg=black ctermbg=gray ctermfg=black
-hi! PmenuSel guibg=gray guifg=brown ctermbg=brown ctermfg=gray
+" hi! Pmenu guibg=gray guifg=black ctermbg=gray ctermfg=black
+" hi! PmenuSel guibg=gray guifg=brown ctermbg=brown ctermfg=gray
 
 
 "----------------------------------------------------------------------

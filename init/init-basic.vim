@@ -13,7 +13,11 @@
 " 基础设置
 "----------------------------------------------------------------------
 
+" 设置 leaderkey
 let mapleader = " "
+
+" 设置 leaderkey 超时时间
+set notimeout nottimeout
 
 " 系统剪切板共享
 " set clipboard=unnamed
