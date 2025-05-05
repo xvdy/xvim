@@ -14,6 +14,24 @@ vim -E -c PlugInstall -c q
 or
 
 :PlugInstall
+如果报错 git 目录不为空等的错：mv ~/.vim/bundles /tmp/
+```
+
+## 快捷键
+* leader key：空格
+
+文件管理
+
+* 打开 nerdtree : F4 或者 <leader>n
+* 文件搜索：<leader>sf
+* 内容搜索：<leader>sg
+
+打开 lsp 代码提示
+
+* init/init-plugin.vim
+
+```
+let g:bundle_group = ['nerdtree', 'fzf', 'snippets', 'lsp']
 ```
 
 ## 参考

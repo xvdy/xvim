@@ -12,7 +12,7 @@
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
    " let g:bundle_group = ['nerdtree', 'ctrlp']
-   let g:bundle_group = ['nerdtree', 'fzf', 'snippets', 'lsp']
+   let g:bundle_group = ['nerdtree', 'fzf', 'snippets']
 endif
 
 "----------------------------------------------------------------------
